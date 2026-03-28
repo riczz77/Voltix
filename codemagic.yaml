@@ -2,10 +2,6 @@ workflows:
   android:
     name: Android Build
 
-    environment:
-      vars:
-        JAVA_HOME: /usr/lib/jvm/java-17-openjdk
-
     scripts:
       - chmod +x gradlew || true
       - ./gradlew assembleDebug || gradle assembleDebug
