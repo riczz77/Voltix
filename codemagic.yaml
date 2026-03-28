@@ -1,7 +1,11 @@
 workflows:
   android:
     name: Android Build
+
     scripts:
+      - chmod +x gradlew
+      - ./gradlew clean
       - ./gradlew assembleRelease
+
     artifacts:
       - app/build/outputs/**/*.apk
