@@ -1,22 +1,22 @@
 workflows:
   android:
-    name: Android Build (Safe Mode)
+    name: Android Build Fix
 
     environment:
       vars:
-        GRADLE_OPTS: "-Xmx2048m"
+        GRADLE_OPTS: "-Xmx4096m"
 
     scripts:
-      - echo "📂 Cek isi project"
-      - ls -la
+      - echo "List files"
+      - ls -R
 
-      - echo "🔧 Cari gradlew"
+      - echo "Fix permission"
       - chmod +x gradlew || true
 
-      - echo "🧹 Clean project"
-      - ./gradlew clean || gradle clean || true
+      - echo "Download dependencies"
+      - ./gradlew build -x test || gradle build -x test
 
-      - echo "📦 Build APK (Debug biar lebih gampang)"
+      - echo "Build APK"
       - ./gradlew assembleDebug || gradle assembleDebug
 
     artifacts:
