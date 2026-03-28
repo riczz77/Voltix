@@ -3,12 +3,13 @@ workflows:
     name: Android Build
 
     environment:
-      groups:
-        - android
+      vars:
+        JAVA_HOME: /usr/lib/jvm/java-17-openjdk
 
     scripts:
-      - chmod +x ./gradlew || true
-      - ./gradlew assembleRelease || gradle assembleRelease
+      - chmod +x gradlew || true
+      - ./gradlew clean || true
+      - ./gradlew assembleDebug || gradle assembleDebug
 
     artifacts:
       - app/build/outputs/**/*.apk
