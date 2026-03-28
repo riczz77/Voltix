@@ -2,22 +2,10 @@ workflows:
   android:
     name: Android Build Fix
 
-    environment:
-      vars:
-        GRADLE_OPTS: "-Xmx4096m"
-
     scripts:
-      - echo "List files"
-      - ls -R
-
-      - echo "Fix permission"
       - chmod +x gradlew || true
-
-      - echo "Download dependencies"
-      - ./gradlew build -x test || gradle build -x test
-
-      - echo "Build APK"
-      - ./gradlew assembleDebug || gradle assembleDebug
+      - ./gradlew clean || true
+      - ./gradlew assembleDebug --stacktrace || gradle assembleDebug --stacktrace
 
     artifacts:
       - "**/*.apk"
