@@ -1,4 +1,4 @@
-workflows:
+android:
   android-build:
     name: Android Build (Safe Mode)
 
