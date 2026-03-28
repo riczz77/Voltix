@@ -2,8 +2,13 @@ workflows:
   android:
     name: Android Build
 
+    environment:
+      groups:
+        - android
+
     scripts:
-      - gradle assembleRelease
+      - chmod +x ./gradlew || true
+      - ./gradlew assembleRelease || gradle assembleRelease
 
     artifacts:
       - app/build/outputs/**/*.apk
