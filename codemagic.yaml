@@ -1,5 +1,5 @@
-android:
-  android-build:
+workflow:
+  android:
     name: Android Build (Safe Mode)
 
     environment:
